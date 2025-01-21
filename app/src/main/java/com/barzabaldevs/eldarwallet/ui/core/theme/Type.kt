@@ -1,4 +1,4 @@
-package com.barzabaldevs.eldarwallet.ui.theme
+package com.barzabaldevs.eldarwallet.ui.core.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -67,6 +67,7 @@ dependencies {
     // Retrofit
     implementation (libs.retrofit)
     implementation (libs.converter.gson)
+    implementation (libs.retrofit2.converter.scalars)
     // Coil
     implementation (libs.coil.compose)
     implementation (libs.androidx.runtime)
