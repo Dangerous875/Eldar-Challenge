@@ -41,18 +41,25 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.barzabaldevs.eldarwallet.R
 import com.barzabaldevs.eldarwallet.ui.core.theme.Background
 import com.barzabaldevs.eldarwallet.ui.core.theme.Primary
 import com.barzabaldevs.eldarwallet.ui.core.theme.Secondary
+import com.barzabaldevs.eldarwallet.ui.screens.loginScreen.viewmodel.LoginScreenViewModel
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable
-fun LoginScreen(loginForm: Boolean, auth: FirebaseAuth, navigateToMainScreen: () -> Unit) {
+fun LoginScreen(
+    loginSelected: Boolean,
+    auth: FirebaseAuth,
+    navigateToMainScreen: () -> Unit,
+    viewModel: LoginScreenViewModel = hiltViewModel()
+) {
     val context = LocalContext.current
     val showLoginForm =
         rememberSaveable {
-            mutableStateOf(loginForm)
+            mutableStateOf(loginSelected)
         }
 
     Surface(modifier = Modifier.fillMaxSize()) {
@@ -101,7 +108,8 @@ fun LoginScreen(loginForm: Boolean, auth: FirebaseAuth, navigateToMainScreen: ()
                         password,
                         name,
                         lastName,
-                        context
+                        context,
+                        viewModel
                     ) { navigateToMainScreen() }
                 }
             }
@@ -357,6 +365,7 @@ fun loginUser(
                 Toast
                     .makeText(context, "Login Successful", Toast.LENGTH_SHORT)
                     .show()
+
                 navigateToMainScreen()
             } else {
                 Toast
@@ -376,6 +385,7 @@ fun createUser(
     name: String,
     lastName: String,
     context: Context,
+    viewModel: LoginScreenViewModel,
     navigateToMainScreen: () -> Unit
 ) {
     auth
@@ -383,14 +393,12 @@ fun createUser(
         .addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 val userId = auth.currentUser?.uid ?: return@addOnCompleteListener
-//                val userData =
-//                    UserData(
-//                        userID = userId,
-//                        name = name,
-//                        nickname = nickname,
-//                        email = email,
-//                        infoUser = "Info Default",
-//                    )
+                viewModel.createUserInDatabase(
+                    id = userId,
+                    email = email,
+                    name = name,
+                    lastName = lastName
+                )
                 Toast
                     .makeText(context, "User Created Successfully", Toast.LENGTH_SHORT)
                     .show()
