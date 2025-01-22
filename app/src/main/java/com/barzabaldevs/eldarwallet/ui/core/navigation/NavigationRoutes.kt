@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 sealed class NavigationRoutes {
 
     @Serializable
-    data class LoginScreenRoute(val login: Boolean) : NavigationRoutes()
+    data class LoginScreenRoute(val loginSelected: Boolean) : NavigationRoutes()
 
     @Serializable
     data object GenerateQRCodeRoute : NavigationRoutes()

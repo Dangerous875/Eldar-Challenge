@@ -24,12 +24,14 @@ fun NavigationWrapper(viewModel: NavigationWrapperViewModel = hiltViewModel()) {
             HomeScreen(
                 auth,
                 navigateToMainScreen = { navController.navigate(MainScreenRoute) },
-                navigateToLoginScreen = { navController.navigate(LoginScreenRoute(login = it)) })
+                navigateToLoginScreen = { loginSelected ->
+                    navController.navigate(LoginScreenRoute(loginSelected = loginSelected))
+                })
         }
-        composable<LoginScreenRoute> {
-            val safeArgs = it.toRoute<LoginScreenRoute>()
+        composable<LoginScreenRoute> { navBackStackEntry ->
+            val safeArgs = navBackStackEntry.toRoute<LoginScreenRoute>()
             LoginScreen(
-                safeArgs.login,
+                safeArgs.loginSelected,
                 auth,
                 navigateToMainScreen = { navController.navigate(MainScreenRoute) })
         }

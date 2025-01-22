@@ -1,11 +1,9 @@
 <resources>
     <string name="app_name">EldarWallet</string>
-    <string name="EnterGame">Enter Game</string>
     <string name="Home">Home</string>
     <string name="BACK">Back</string>
     <string name="ExitApp"> Do you want to exit app ? </string>
     <string name="ExitConfirmation"> Exit confirmation </string>
-
     <string name="SignUpTitle"> EldarWallet virtual wallet. </string>
     <string name="SignUpSubTitle"> Transactional solutions.</string>
     <string name="SignUpFree"> Sign Up Free </string>
