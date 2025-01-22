@@ -14,4 +14,7 @@ interface UsersDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUser(user: UserDataEntity)
+
+    @Query("UPDATE user_table SET creditCards = :newCreditCards WHERE id = :id")
+    suspend fun updateCreditCards(id: String, newCreditCards: String)
 }

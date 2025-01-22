@@ -3,6 +3,8 @@ package com.barzabaldevs.eldarwallet.ui.screens.mainScreen
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
@@ -23,9 +25,9 @@ fun MainScreen(
 ) {
 
     val uiState by viewModel.uiState.collectAsState()
-    if (uiState.isLoading){
+    if (uiState.isLoading) {
         CircularProgressIndicator()
-    }else{
+    } else {
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             val currentUser = uiState.userData!!
             Column {
@@ -36,9 +38,20 @@ fun MainScreen(
                 }) {
                     Text("LogOut")
                 }
+                Button(onClick = {
+                    viewModel.addCreditCard()
+                }) {
+                    Text("Add new Card")
+                }
+
+                LazyColumn(modifier = Modifier.weight(1f)) {
+                    items(uiState.creditCards) { creditCard ->
+                        Text(text = creditCard.cardNumber)
+                    }
+                }
+
             }
-
         }
-    }
 
+    }
 }
