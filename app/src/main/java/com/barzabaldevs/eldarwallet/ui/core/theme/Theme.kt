@@ -1,4 +1,4 @@
-package com.barzabaldevs.eldarwallet.ui.theme
+package com.barzabaldevs.eldarwallet.ui.core.theme
 
 import android.app.Activity
 import android.os.Build
