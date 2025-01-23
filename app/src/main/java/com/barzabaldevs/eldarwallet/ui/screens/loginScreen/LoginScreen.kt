@@ -43,6 +43,8 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.barzabaldevs.eldarwallet.R
+import com.barzabaldevs.eldarwallet.ui.components.SetOrientationScreen
+import com.barzabaldevs.eldarwallet.ui.core.navigation.OrientationScreen
 import com.barzabaldevs.eldarwallet.ui.core.theme.Background
 import com.barzabaldevs.eldarwallet.ui.core.theme.Primary
 import com.barzabaldevs.eldarwallet.ui.core.theme.Secondary
@@ -57,6 +59,12 @@ fun LoginScreen(
     viewModel: LoginScreenViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
+
+    SetOrientationScreen(
+        context = context,
+        orientation = OrientationScreen.PORTRAIT.orientation,
+    )
+
     val showLoginForm =
         rememberSaveable {
             mutableStateOf(loginSelected)

@@ -8,6 +8,7 @@ import com.barzabaldevs.eldarwallet.domain.usecases.GetUserByIDFromDataBaseUseCa
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -33,6 +34,7 @@ class MainScreenViewModel @Inject constructor(
         viewModelScope.launch {
             val currentUser = getUserByIDFromDataBaseUseCase(auth.currentUser?.uid ?: "")
             _uiState.update {
+                delay(3000L)
                 it.copy(
                     isLoading = false,
                     userData = currentUser,
@@ -43,7 +45,7 @@ class MainScreenViewModel @Inject constructor(
     }
 
     fun addCreditCard() = viewModelScope.launch {
-        val creditCard = CreditCard("1234567812345678", "123", "12/25", "John", "Doe")
+        val creditCard = CreditCard("971180303257522", "123", "12/25", "John", "Doe")
         _uiState.update { it.copy(creditCards = it.creditCards.plus(creditCard)) }
         withContext(Dispatchers.IO){
             updateCreditCardUseCase(auth.uid!!, _uiState.value.creditCards)

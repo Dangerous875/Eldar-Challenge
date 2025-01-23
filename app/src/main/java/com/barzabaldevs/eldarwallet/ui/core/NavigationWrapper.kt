@@ -10,10 +10,12 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.barzabaldevs.eldarwallet.ui.core.navigation.NavigationRoutes.*
 import com.barzabaldevs.eldarwallet.ui.core.viewmodel.NavigationWrapperViewModel
+import com.barzabaldevs.eldarwallet.ui.screens.addCreditCardScreen.AddCreditCardScreen
 import com.barzabaldevs.eldarwallet.ui.screens.loginScreen.LoginScreen
 import com.barzabaldevs.eldarwallet.ui.screens.generateQRScreen.QRScreen
 import com.barzabaldevs.eldarwallet.ui.screens.homeScreen.HomeScreen
 import com.barzabaldevs.eldarwallet.ui.screens.mainScreen.MainScreen
+import com.barzabaldevs.eldarwallet.ui.screens.payScreen.PayScreen
 
 @Composable
 fun NavigationWrapper(viewModel: NavigationWrapperViewModel = hiltViewModel()) {
@@ -42,8 +44,14 @@ fun NavigationWrapper(viewModel: NavigationWrapperViewModel = hiltViewModel()) {
                     navController.navigate(HomeScreenRoute) {
                         popUpTo(HomeScreenRoute) { inclusive = true }
                     }
-                })
+                },
+                navigateToQRScreen = { navController.navigate(GenerateQRCodeRoute) },
+                navigateToPayScreen = { navController.navigate(PayScreenRoute) },
+                navigateToAddCreditCard = { navController.navigate(AddCreditCardRoute) }
+            )
         }
         composable<GenerateQRCodeRoute> { QRScreen() }
+        composable<PayScreenRoute> { PayScreen() }
+        composable<AddCreditCardRoute> { AddCreditCardScreen() }
     }
 }

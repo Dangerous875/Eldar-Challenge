@@ -19,12 +19,15 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.barzabaldevs.eldarwallet.R
+import com.barzabaldevs.eldarwallet.ui.components.SetOrientationScreen
+import com.barzabaldevs.eldarwallet.ui.core.navigation.OrientationScreen
 import com.barzabaldevs.eldarwallet.ui.core.theme.Background
 import com.barzabaldevs.eldarwallet.ui.core.theme.Primary
 import com.barzabaldevs.eldarwallet.ui.core.theme.Secondary
@@ -36,6 +39,13 @@ fun HomeScreen(
     navigateToLoginScreen: (it: Boolean) -> Unit,
     navigateToMainScreen: () -> Unit
 ) {
+    val context = LocalContext.current
+
+    SetOrientationScreen(
+        context = context,
+        orientation = OrientationScreen.PORTRAIT.orientation,
+    )
+
     Column(
         modifier =
         Modifier
