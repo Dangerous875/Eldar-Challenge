@@ -29,6 +29,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -68,7 +69,7 @@ fun MainScreen(
     auth: FirebaseAuth,
     navigateToHomeScreen: () -> Unit,
     navigateToQRScreen: () -> Unit,
-    navigateToPayScreen: (CreditCard) -> Unit,
+    navigateToPayScreen: () -> Unit,
     navigateToAddCreditCard: () -> Unit,
     viewModel: MainScreenViewModel
 ) {
@@ -78,6 +79,10 @@ fun MainScreen(
         context = context,
         orientation = OrientationScreen.PORTRAIT.orientation,
     )
+
+    LaunchedEffect(key1 = true) {
+        viewModel.initUserData()
+    }
 
     val uiState by viewModel.uiState.collectAsState()
     val activity = LocalContext.current as Activity
@@ -154,8 +159,11 @@ fun MainScreen(
                 } else {
                     ContentViewCards(
                         uiState = uiState,
-                        navigateToPayScreen = navigateToPayScreen,
-                        navigateToAddCreditCard = navigateToAddCreditCard
+                        navigateToPayScreen = { creditCard ->
+                            viewModel.setSelectedCard(creditCard)
+                            navigateToPayScreen()
+                        },
+                        navigateToAddCreditCard = { navigateToAddCreditCard() }
                     )
                 }
             }
@@ -190,23 +198,6 @@ fun ContentViewCards(
     }
 }
 
-fun getCardName(cardNumber: String): String {
-    return when {
-        cardNumber.startsWith("4") -> "Visa"
-        cardNumber.startsWith("5") -> "Master Card"
-        cardNumber.startsWith("3") -> "American Express"
-        else -> "Maestro"
-    }
-}
-
-fun getCardIcon(cardNumber: String): Int {
-    return when {
-        cardNumber.startsWith("4") -> R.drawable.ic_visa
-        cardNumber.startsWith("5") -> R.drawable.ic_master
-        cardNumber.startsWith("3") -> R.drawable.ic_american
-        else -> R.drawable.ic_default_card
-    }
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -220,7 +211,7 @@ fun TopBar(
         title = { Text(text = title, color = Secondary, fontStyle = FontStyle.Italic) },
         colors = TopAppBarDefaults.topAppBarColors(Color.Black),
         actions = {
-            IconButton(onClick = navigateToQRScreen) {
+            IconButton(onClick = { navigateToQRScreen() }) {
                 Icon(painter = painterResource(id = R.drawable.ic_qr), contentDescription = null)
             }
             DropdownMenuButton(showDialogDesLogin, showDialogExitApp)

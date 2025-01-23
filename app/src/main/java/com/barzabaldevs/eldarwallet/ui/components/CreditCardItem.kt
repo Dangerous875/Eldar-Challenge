@@ -24,13 +24,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.barzabaldevs.eldarwallet.domain.model.CreditCard
 import com.barzabaldevs.eldarwallet.ui.core.theme.Secondary
-import com.barzabaldevs.eldarwallet.ui.screens.mainScreen.getCardIcon
-import com.barzabaldevs.eldarwallet.ui.screens.mainScreen.getCardName
 
 @Composable
-fun CreditCardItem(creditCard: CreditCard, onClick: () -> Unit) {
+fun CreditCardItem(creditCard: CreditCard, onClick: (CreditCard) -> Unit) {
     Card(
-        onClick = onClick,
+        onClick = { onClick(creditCard) },
         modifier = Modifier
             .fillMaxWidth()
             .height(120.dp),

@@ -53,8 +53,33 @@ fun NavigationWrapper(viewModel: NavigationWrapperViewModel = hiltViewModel()) {
                 viewModel = mainScreenViewModel
             )
         }
-        composable<GenerateQRCodeRoute> { QRScreen() }
-        composable<PayScreenRoute> { PayScreen(viewModel = mainScreenViewModel) }
-        composable<AddCreditCardRoute> { AddCreditCardScreen(viewModel = mainScreenViewModel) }
+        composable<GenerateQRCodeRoute> {
+            QRScreen {
+                navController.navigate(
+                    MainScreenRoute
+                ) {
+                    popUpTo(MainScreenRoute) { inclusive = true }
+                }
+            }
+        }
+        composable<PayScreenRoute> {
+            PayScreen(viewModel = mainScreenViewModel) {
+                navController.navigate(
+                    MainScreenRoute
+                ) {
+                    popUpTo(MainScreenRoute) { inclusive = true }
+                }
+
+            }
+        }
+        composable<AddCreditCardRoute> {
+            AddCreditCardScreen(viewModel = mainScreenViewModel) {
+                navController.navigate(
+                    MainScreenRoute
+                ) {
+                    popUpTo(MainScreenRoute) { inclusive = true }
+                }
+            }
+        }
     }
 }

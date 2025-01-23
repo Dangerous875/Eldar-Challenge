@@ -9,9 +9,9 @@ import javax.inject.Inject
 
 class ApiServiceQR @Inject constructor(private val apiService: QRCodeApiService) {
 
-    suspend fun generateQRCode(): Response<ResponseBody> {
+    suspend fun generateQRCode(fullName: String): Response<ResponseBody> {
         val mediaType = "application/x-www-form-urlencoded".toMediaTypeOrNull()
-        val body = "text=Cristian Barzabal".toRequestBody(mediaType)
+        val body = "text=$fullName".toRequestBody(mediaType)
         return apiService.generateQRCode(body)
     }
 }

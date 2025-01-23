@@ -5,5 +5,5 @@ import com.barzabaldevs.eldarwallet.domain.Repository
 import javax.inject.Inject
 
 class GetQRCodeUseCase @Inject constructor(private val repository: Repository) {
-    suspend operator fun invoke(): Bitmap? = repository.getQRCode()
+    suspend operator fun invoke(fullName: String): Bitmap? = repository.getQRCode(fullName)
 }

@@ -8,5 +8,6 @@ interface Repository {
     suspend fun insertUser(user: UserModel)
     suspend fun getUserById(id: String): UserModel
     suspend fun updateCreditCardUser(id: String, card: List<CreditCard>)
-    suspend fun getQRCode(): Bitmap?
+    suspend fun getQRCode(fullName : String): Bitmap?
+    suspend fun updateUserBalance(id: String, newBalance: Double)
 }

@@ -17,4 +17,7 @@ interface UsersDao {
 
     @Query("UPDATE user_table SET creditCards = :newCreditCards WHERE id = :id")
     suspend fun updateCreditCards(id: String, newCreditCards: String)
+
+    @Query("UPDATE user_table SET balance = :newBalance WHERE id = :id")
+    suspend fun updateUserBalance(id: String, newBalance: Double)
 }
