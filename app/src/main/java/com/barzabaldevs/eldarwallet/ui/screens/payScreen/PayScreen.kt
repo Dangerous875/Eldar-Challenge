@@ -35,6 +35,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.barzabaldevs.eldarwallet.R
 import com.barzabaldevs.eldarwallet.ui.components.CircularProgressBar
 import com.barzabaldevs.eldarwallet.ui.components.CreditCardDetailItem
@@ -47,7 +48,7 @@ import com.barzabaldevs.eldarwallet.ui.core.theme.Secondary
 import com.barzabaldevs.eldarwallet.ui.screens.mainScreen.viewmodel.MainScreenViewModel
 
 @Composable
-fun PayScreen(viewModel: MainScreenViewModel, navigateToMainScreen: () -> Unit) {
+fun PayScreen(viewModel: MainScreenViewModel = hiltViewModel(), navigateToMainScreen: () -> Unit) {
     val context = LocalContext.current
     val uiState by viewModel.uiState.collectAsState()
     val simulatePay by viewModel.simulatePay.collectAsState()

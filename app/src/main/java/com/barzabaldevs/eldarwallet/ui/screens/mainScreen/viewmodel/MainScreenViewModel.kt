@@ -32,10 +32,6 @@ class MainScreenViewModel @Inject constructor(
     private val _paySuccess = MutableStateFlow(false)
     val paySuccess = _paySuccess.asStateFlow()
 
-    init {
-        initUserData()
-    }
-
     fun initUserData() {
         viewModelScope.launch {
             val currentUser = getUserByIDFromDataBaseUseCase(auth.currentUser?.uid ?: "")

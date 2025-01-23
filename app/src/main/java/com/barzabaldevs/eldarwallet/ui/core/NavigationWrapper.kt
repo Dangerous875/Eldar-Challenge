@@ -27,7 +27,10 @@ fun NavigationWrapper(viewModel: NavigationWrapperViewModel = hiltViewModel()) {
         composable<HomeScreenRoute> {
             HomeScreen(
                 auth,
-                navigateToMainScreen = { navController.navigate(MainScreenRoute) },
+                navigateToMainScreen = {
+                    mainScreenViewModel.initUserData()
+                    navController.navigate(MainScreenRoute)
+                },
                 navigateToLoginScreen = { loginSelected ->
                     navController.navigate(LoginScreenRoute(loginSelected = loginSelected))
                 })
