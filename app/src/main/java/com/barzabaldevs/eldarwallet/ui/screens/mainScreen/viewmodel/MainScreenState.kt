@@ -7,4 +7,5 @@ data class MainScreenState(
     val isLoading: Boolean = true,
     val userData : UserModel? = null,
     val creditCards: List<CreditCard> = emptyList(),
+    val cardSelected : CreditCard? = null
 )

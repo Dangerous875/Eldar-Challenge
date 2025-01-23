@@ -42,9 +42,9 @@ class RepositoryImpl @Inject constructor(
 
     }
 
-    override suspend fun getQRCode(): Bitmap? {
+    override suspend fun getQRCode(fullName : String): Bitmap? {
         return withContext(Dispatchers.IO) {
-            val response = apiServiceQR.generateQRCode()
+            val response = apiServiceQR.generateQRCode(fullName)
             if (response.isSuccessful) {
                 response.body()?.byteStream()?.use { inputStream ->
                     BitmapFactory.decodeStream(inputStream)
@@ -53,5 +53,9 @@ class RepositoryImpl @Inject constructor(
                 null
             }
         }
+    }
+
+    override suspend fun updateUserBalance(id: String, newBalance: Double) {
+        usersDao.updateUserBalance(id, newBalance)
     }
 }
