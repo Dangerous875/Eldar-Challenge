@@ -9,9 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.barzabaldevs.eldarwallet.ui.components.SetOrientationScreen
 import com.barzabaldevs.eldarwallet.ui.core.navigation.OrientationScreen
+import com.barzabaldevs.eldarwallet.ui.screens.mainScreen.viewmodel.MainScreenViewModel
 
 @Composable
-fun PayScreen() {
+fun PayScreen(viewModel: MainScreenViewModel) {
     val context = LocalContext.current
 
     SetOrientationScreen(

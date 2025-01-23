@@ -15,12 +15,14 @@ import com.barzabaldevs.eldarwallet.ui.screens.loginScreen.LoginScreen
 import com.barzabaldevs.eldarwallet.ui.screens.generateQRScreen.QRScreen
 import com.barzabaldevs.eldarwallet.ui.screens.homeScreen.HomeScreen
 import com.barzabaldevs.eldarwallet.ui.screens.mainScreen.MainScreen
+import com.barzabaldevs.eldarwallet.ui.screens.mainScreen.viewmodel.MainScreenViewModel
 import com.barzabaldevs.eldarwallet.ui.screens.payScreen.PayScreen
 
 @Composable
 fun NavigationWrapper(viewModel: NavigationWrapperViewModel = hiltViewModel()) {
     val navController = rememberNavController()
     val auth by viewModel.auth.collectAsState()
+    val mainScreenViewModel: MainScreenViewModel = hiltViewModel()
     NavHost(navController = navController, startDestination = HomeScreenRoute) {
         composable<HomeScreenRoute> {
             HomeScreen(
@@ -47,11 +49,12 @@ fun NavigationWrapper(viewModel: NavigationWrapperViewModel = hiltViewModel()) {
                 },
                 navigateToQRScreen = { navController.navigate(GenerateQRCodeRoute) },
                 navigateToPayScreen = { navController.navigate(PayScreenRoute) },
-                navigateToAddCreditCard = { navController.navigate(AddCreditCardRoute) }
+                navigateToAddCreditCard = { navController.navigate(AddCreditCardRoute) },
+                viewModel = mainScreenViewModel
             )
         }
         composable<GenerateQRCodeRoute> { QRScreen() }
-        composable<PayScreenRoute> { PayScreen() }
-        composable<AddCreditCardRoute> { AddCreditCardScreen() }
+        composable<PayScreenRoute> { PayScreen(viewModel = mainScreenViewModel) }
+        composable<AddCreditCardRoute> { AddCreditCardScreen(viewModel = mainScreenViewModel) }
     }
 }

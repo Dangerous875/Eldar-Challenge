@@ -46,7 +46,6 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.barzabaldevs.eldarwallet.R
 import com.barzabaldevs.eldarwallet.domain.model.CreditCard
 import com.barzabaldevs.eldarwallet.ui.components.ButtonAddCard
@@ -71,7 +70,7 @@ fun MainScreen(
     navigateToQRScreen: () -> Unit,
     navigateToPayScreen: (CreditCard) -> Unit,
     navigateToAddCreditCard: () -> Unit,
-    viewModel: MainScreenViewModel = hiltViewModel()
+    viewModel: MainScreenViewModel
 ) {
     val context = LocalContext.current
 
