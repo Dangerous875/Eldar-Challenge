@@ -13,7 +13,7 @@ ________________________________________
 > [!TIP]
 >En la pantalla HomeScreen de la aplicación, tenemos la opción de acceder a dos secciones: la de crear cuenta o la de iniciar sesión si ya tenemos una cuenta creada. El proceso de iniciar sesión está integrado con Firebase, permitiendo la autenticación del usuario mediante su ID único. Este ID se utiliza para vincular los datos del usuario almacenados en la base de datos local, garantizando que la información asociada a su cuenta se mantenga sincronizada de manera segura y eficiente.
 > 
-![Descripción de la imagen](https://drive.google.com/uc?id=1o6LkUMnn2j8uJQSmgI3AUHhtpbJmo1kO)
+![Descripción de la imagen](https://drive.google.com/uc?id=1EXcMYl0DbAUagRQc4VJO0Wi44QGqvsf_)
 >
 > 
 ![Descripción de la imagen](https://drive.google.com/uc?id=1LBBozGKFrSJ_nvnD2trufK656rWjRSUX)
