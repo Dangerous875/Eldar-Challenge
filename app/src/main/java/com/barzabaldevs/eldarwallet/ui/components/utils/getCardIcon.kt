@@ -1,4 +1,4 @@
-package com.barzabaldevs.eldarwallet.ui.components
+package com.barzabaldevs.eldarwallet.ui.components.utils
 
 import com.barzabaldevs.eldarwallet.R
 

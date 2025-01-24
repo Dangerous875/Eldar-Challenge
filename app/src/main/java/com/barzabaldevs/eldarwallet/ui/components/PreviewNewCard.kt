@@ -32,6 +32,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.barzabaldevs.eldarwallet.ui.components.utils.formatCardNumber
+import com.barzabaldevs.eldarwallet.ui.components.utils.formatDate
+import com.barzabaldevs.eldarwallet.ui.components.utils.getCardIcon
+import com.barzabaldevs.eldarwallet.ui.components.utils.getCardName
 import com.barzabaldevs.eldarwallet.ui.core.theme.Secondary
 import java.util.Locale
 
@@ -46,8 +50,7 @@ fun PreviewNewCard(
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(230.dp)
-            .padding(8.dp),
+            .height(160.dp),
         colors = CardDefaults.cardColors(containerColor = Color.DarkGray),
         shape = RoundedCornerShape(8.dp),
         border = BorderStroke(width = 1.dp, color = Secondary),
@@ -58,7 +61,7 @@ fun PreviewNewCard(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp)
+                .padding(top = 8.dp, start = 8.dp, end = 8.dp, bottom = 8.dp)
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
@@ -74,7 +77,7 @@ fun PreviewNewCard(
                         color = Secondary,
                         maxLines = 1
                     )
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = getCardName(cardNumber),
                         style = MaterialTheme.typography.titleMedium,
@@ -82,7 +85,7 @@ fun PreviewNewCard(
                         color = Secondary,
                         maxLines = 1
                     )
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = "${firstName.uppercase(Locale.getDefault())} ${lastName.uppercase(Locale.getDefault())}",
                         style = MaterialTheme.typography.titleMedium,
@@ -90,7 +93,7 @@ fun PreviewNewCard(
                         color = Secondary,
                         maxLines = 1
                     )
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(4.dp))
                     Text(
                         text = cvv,
                         style = MaterialTheme.typography.titleMedium,
@@ -106,7 +109,7 @@ fun PreviewNewCard(
                     modifier = Modifier.size(50.dp)
                 )
             }
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(4.dp))
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween,

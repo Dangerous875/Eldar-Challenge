@@ -32,6 +32,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.barzabaldevs.eldarwallet.ui.components.utils.formatCardNumber
+import com.barzabaldevs.eldarwallet.ui.components.utils.formatDate
+import com.barzabaldevs.eldarwallet.ui.components.utils.getCardIcon
 import com.barzabaldevs.eldarwallet.ui.core.theme.Secondary
 import com.barzabaldevs.eldarwallet.ui.screens.mainScreen.viewmodel.MainScreenState
 

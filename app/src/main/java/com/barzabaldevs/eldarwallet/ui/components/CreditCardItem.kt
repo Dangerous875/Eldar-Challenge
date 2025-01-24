@@ -23,6 +23,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.barzabaldevs.eldarwallet.domain.model.CreditCard
+import com.barzabaldevs.eldarwallet.ui.components.utils.getCardIcon
+import com.barzabaldevs.eldarwallet.ui.components.utils.getCardName
 import com.barzabaldevs.eldarwallet.ui.core.theme.Secondary
 
 @Composable

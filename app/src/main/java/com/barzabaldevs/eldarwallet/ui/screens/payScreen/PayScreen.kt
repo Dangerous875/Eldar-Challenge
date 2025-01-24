@@ -74,34 +74,35 @@ fun PayScreen(viewModel: MainScreenViewModel = hiltViewModel(), navigateToMainSc
                     .fillMaxSize()
                     .background(Color.White)
             ) {
-                Button(
-                    modifier = Modifier
-                        .align(Alignment.BottomCenter)
-                        .width(250.dp)
-                        .height(80.dp)
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
-                    onClick = {
-                        navigateToMainScreen()
-                        viewModel.resetPay()
-                    },
-                    shape = RoundedCornerShape(8.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Primary,
-                        contentColor = Background
+                Box {
+                    Image(
+                        modifier = Modifier.fillMaxSize(),
+                        painter = painterResource(R.drawable.iv_paysuccess),
+                        contentDescription = null
                     )
-                ) {
-                    Text(
-                        text = "<- Back to Home",
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.ExtraBold
-                    )
+                    Button(
+                        modifier = Modifier
+                            .align(Alignment.BottomCenter)
+                            .width(250.dp)
+                            .height(80.dp)
+                            .padding(horizontal = 16.dp, vertical = 8.dp),
+                        onClick = {
+                            navigateToMainScreen()
+                            viewModel.resetPay()
+                        },
+                        shape = RoundedCornerShape(8.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Primary,
+                            contentColor = Background
+                        )
+                    ) {
+                        Text(
+                            text = "<- Back to Home",
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.ExtraBold
+                        )
+                    }
                 }
-                Image(
-                    modifier = Modifier.fillMaxSize(),
-                    painter = painterResource(R.drawable.iv_paysuccess),
-                    contentDescription = null
-                )
-
             }
         }
 
