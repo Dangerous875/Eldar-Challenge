@@ -5,7 +5,7 @@
 
 #  Mobile challenge Eldar: Eldar Wallet. Billetera Virtual.
 > [!NOTE]
->  Este proyecto utiliza una arquitectura robusta basada en Clean Architecture y el patrón MVVM, integrando tecnologías como Firebase, Retrofit, Dagger Hilt, Room, Coil, Jetpack Compose y Kotlin Serialization 2.8.0 para argumentos de navegación seguros y funciones para cifrar y descifrar datos utilizando el algoritmo AES con el modo de operación GCM. La pantalla principal, MainScreen, es el corazón de la aplicación permite administrar las tarjetas de crédito del usuario, generar QR con sus datos, visualizar su saldo disponible, vincular nuevas tarjetas de crédito a su cuenta y realizar pagos con sus tarjetas de crédito disponibles.
+>  Este proyecto utiliza una arquitectura robusta basada en Clean Architecture y el patrón MVVM, integrando tecnologías como Firebase, Mockk(UnitTest), Retrofit, Dagger Hilt, Room, Coil, Jetpack Compose y Kotlin Serialization 2.8.0 para argumentos de navegación seguros y funciones para cifrar y descifrar datos utilizando el algoritmo AES con el modo de operación GCM. La pantalla principal, MainScreen, es el corazón de la aplicación permite administrar las tarjetas de crédito del usuario, generar QR con sus datos, visualizar su saldo disponible, vincular nuevas tarjetas de crédito a su cuenta y realizar pagos con sus tarjetas de crédito disponibles.
 ________________________________________
 
 # HomeScreen (Crear cuenta/login)
