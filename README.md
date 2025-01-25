@@ -44,10 +44,11 @@ ________________________________________
 # QRScreen 
 
 > [!TIP]
->En la Pantalla de generación de QR ponemos visualizar el QR generado mediante el api https://rapidapi.com/zingzy/api/qrcode68 el cual al escanear se podrán visualizar nombre y apellido del usuario actual.
+>En la Pantalla de generación de QR ponemos visualizar el QR generado mediante el api https://rapidapi.com/zingzy/api/qrcode68 el cual al escanear se podrán visualizar nombre y apellido del usuario actual. En el caso de no estar conectado a internet nos saldra una pantalla con el mensaje sin conexión con un boton de "Try again" en caso de querer recargar la pantalla al recuperar la conexión
 > 
 ![Descripción de la imagen](https://drive.google.com/uc?id=1vQ04zQiKJ8NhFDPWpkBxbJAuISvuO0zf)
-
+> 
+![Descripción de la imagen](https://drive.google.com/uc?id=15oEbuOb0Q5CXq6wYfbK8OuJ0fOYRHl_6)
 # AddNewCard 
 
 > [!TIP]
